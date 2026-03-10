@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Annapoorna Mysore Nataraj — IT Business Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --navy-mid: #1A2E45;
+    --blue: #1E5F8E;
+    --blue-light: #2980B9;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --cream: #FAF7F2;
+    --white: #FFFFFF;
+    --text: #1A1A2E;
+    --text-muted: #5A6475;
+    --border: rgba(201,168,76,0.25);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 5%;
+    background: rgba(13,27,42,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--gold);
+    letter-spacing: 0.04em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 5% 5rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -20%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(30,95,142,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -10%; left: 20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-content { position: relative; z-index: 2; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid var(--border);
+    color: var(--gold); font-size: 0.78rem;
+    font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.45rem 1rem; border-radius: 2rem;
+    margin-bottom: 1.8rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-tag::before { content: '●'; font-size: 0.5rem; color: var(--gold); }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900; line-height: 1.1;
+    color: var(--white); margin-bottom: 0.3rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 em {
+    font-style: italic; color: var(--gold);
+    display: block;
+  }
+  .hero-sub {
+    font-size: 1.05rem; color: rgba(255,255,255,0.55);
+    font-weight: 300; margin-bottom: 2rem; line-height: 1.7;
+    animation: fadeUp 0.6s 0.2s ease both;
+    max-width: 500px;
+  }
+  .hero-pills {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .pill {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.8);
+    font-size: 0.78rem; font-weight: 500;
+    padding: 0.38rem 0.9rem; border-radius: 2rem;
+    font-family: 'DM Mono', monospace;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.85rem 2rem; border-radius: 4px;
+    font-weight: 600; font-size: 0.88rem;
+    text-decoration: none; letter-spacing: 0.03em;
+    transition: all 0.25s; cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: var(--white);
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  .hero-visual {
+    position: relative; z-index: 2;
+    display: flex; justify-content: center; align-items: center;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 2.5rem;
+    backdrop-filter: blur(20px);
+    animation: fadeIn 0.8s 0.5s ease both;
+    width: 100%; max-width: 360px;
+  }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 900;
+    color: var(--gold); display: block;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-top: 0.4rem; display: block;
+  }
+  .stat-divider {
+    height: 1px; background: rgba(255,255,255,0.08);
+    margin: 1.5rem 0;
+  }
+  .stat-location {
+    display: flex; align-items: center; gap: 0.6rem;
+    color: rgba(255,255,255,0.6); font-size: 0.85rem;
+  }
+  .stat-location svg { color: var(--gold); flex-shrink: 0; }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 5%; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem; font-weight: 500;
+    color: var(--blue); letter-spacing: 0.2em;
+    text-transform: uppercase; margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-label::after {
+    content: ''; flex: 1; max-width: 60px;
+    height: 1px; background: var(--blue);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700; line-height: 1.2;
+    margin-bottom: 1rem; color: var(--navy);
+  }
+  .section-desc {
+    font-size: 1rem; color: var(--text-muted);
+    line-height: 1.75; max-width: 560px;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ── ABOUT ── */
+  .about { background: var(--white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr;
+    gap: 5rem; align-items: start;
+  }
+  .about-left {}
+  .about-text {
+    font-size: 1rem; color: var(--text-muted);
+    line-height: 1.85; margin-bottom: 1.5rem;
+  }
+  .about-highlight {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-style: italic;
+    color: var(--navy); border-left: 3px solid var(--gold);
+    padding-left: 1.2rem; margin: 2rem 0;
+    line-height: 1.6;
+  }
+  .about-right {}
+  .competency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .competency-item {
+    background: var(--cream);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 8px; padding: 1.2rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .competency-item:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .comp-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+  .comp-title { font-weight: 600; font-size: 0.85rem; color: var(--navy); margin-bottom: 0.3rem; }
+  .comp-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── SKILLS ── */
+  .skills { background: var(--navy); }
+  .skills .section-title { color: var(--white); }
+  .skills .section-label { color: var(--gold); }
+  .skills .section-label::after { background: var(--gold); }
+  .skills .section-desc { color: rgba(255,255,255,0.5); }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .skill-category {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 2rem;
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .skill-category:hover {
+    border-color: rgba(201,168,76,0.3);
+    background: rgba(255,255,255,0.06);
+  }
+  .skill-cat-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; color: var(--gold);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;
+  }
+  .skill-cat-title::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--gold); border-radius: 50%;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.8);
+    font-size: 0.78rem; padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+  }
+
+  /* ── EXPERIENCE ── */
+  .experience { background: var(--cream); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 140px; top: 0; bottom: 0; width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--border) 10%, var(--border) 90%, transparent);
+  }
+  .timeline-item {
+    display: grid; grid-template-columns: 140px 1fr;
+    gap: 3rem; margin-bottom: 3.5rem;
+    position: relative;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .timeline-item.visible { opacity: 1; transform: translateY(0); }
+  .timeline-date {
+    text-align: right; padding-top: 0.2rem;
+  }
+  .timeline-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem; color: var(--blue);
+    font-weight: 500;
+  }
+  .timeline-period {
+    font-size: 0.72rem; color: var(--text-muted);
+    margin-top: 0.2rem; line-height: 1.4;
+  }
+  .timeline-dot {
+    position: absolute; left: 133px; top: 8px;
+    width: 15px; height: 15px;
+    background: var(--white); border: 2.5px solid var(--blue);
+    border-radius: 50%; z-index: 1;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .timeline-item:hover .timeline-dot {
+    background: var(--gold); border-color: var(--gold);
+  }
+  .timeline-content {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 12px; padding: 2rem;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .timeline-content:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    transform: translateX(4px);
+  }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.4rem; flex-wrap: wrap; gap: 0.5rem; }
+  .exp-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); }
+  .exp-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; background: rgba(30,95,142,0.08);
+    color: var(--blue); padding: 0.3rem 0.7rem;
+    border-radius: 3px; border: 1px solid rgba(30,95,142,0.15);
+    white-space: nowrap;
+  }
+  .exp-company { font-size: 0.88rem; color: var(--blue); font-weight: 600; margin-bottom: 0.2rem; }
+  .exp-location { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1.2rem; }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 0.88rem; color: var(--text-muted);
+    line-height: 1.7; padding-left: 1.2rem;
+    position: relative; margin-bottom: 0.5rem;
+  }
+  .exp-bullets li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--gold); font-size: 0.7rem; top: 0.25rem;
+  }
+  .exp-achievement {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: #8a6a1f; font-size: 0.78rem; font-weight: 600;
+    padding: 0.3rem 0.7rem; border-radius: 4px; margin: 0.3rem 0.3rem 0 0;
+  }
+  .exp-achievements { margin-top: 1rem; }
+
+  /* ── PROJECTS ── */
+  .projects { background: var(--white); }
+  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .project-card {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px; overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    background: var(--white);
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+    border-color: var(--gold);
+  }
+  .project-header {
+    padding: 1.8rem 1.8rem 1.2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .project-icon {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    border-radius: 10px; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 1.4rem; margin-bottom: 1rem;
+  }
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--navy); margin-bottom: 0.5rem; line-height: 1.3;
+  }
+  .project-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; color: var(--blue);
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .project-body { padding: 1.2rem 1.8rem; flex: 1; }
+  .project-desc {
+    font-size: 0.84rem; color: var(--text-muted);
+    line-height: 1.7; margin-bottom: 1.2rem;
+  }
+  .project-deliverables { margin-bottom: 1rem; }
+  .deliverable {
+    display: flex; align-items: flex-start; gap: 0.6rem;
+    font-size: 0.8rem; color: var(--text-muted);
+    margin-bottom: 0.4rem; line-height: 1.5;
+  }
+  .deliverable::before {
+    content: '✓'; color: var(--gold); font-weight: 700;
+    flex-shrink: 0; margin-top: 0.05rem;
+  }
+  .project-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 1rem 1.8rem 1.8rem; }
+  .tool-tag {
+    background: var(--cream); border: 1px solid rgba(0,0,0,0.08);
+    color: var(--text-muted); font-size: 0.72rem;
+    font-family: 'DM Mono', monospace;
+    padding: 0.25rem 0.6rem; border-radius: 3px;
+  }
+
+  /* ── EDUCATION & CERTS ── */
+  .edu { background: var(--cream); }
+  .edu-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; }
+  .edu-card {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 12px; padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .edu-card:hover { border-color: var(--gold); }
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--navy);
+    margin-bottom: 0.3rem;
+  }
+  .edu-school { font-size: 0.88rem; color: var(--blue); font-weight: 600; margin-bottom: 0.2rem; }
+  .edu-meta { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem; }
+  .edu-gpa {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(201,168,76,0.1); color: #8a6a1f;
+    font-size: 0.78rem; font-weight: 600;
+    padding: 0.3rem 0.7rem; border-radius: 4px;
+  }
+  .cert-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .cert-item {
+    display: flex; align-items: center; gap: 1rem;
+    background: var(--white); border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 8px; padding: 1rem 1.2rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .cert-item:hover { border-color: var(--gold); transform: translateX(4px); }
+  .cert-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .cert-name { font-size: 0.85rem; font-weight: 600; color: var(--navy); }
+  .cert-issuer { font-size: 0.75rem; color: var(--text-muted); }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--navy);
+    text-align: center;
+    padding: 8rem 5%;
+  }
+  .contact .section-label { justify-content: center; color: var(--gold); }
+  .contact .section-label::after { display: none; }
+  .contact .section-title { color: var(--white); text-align: center; max-width: 600px; margin: 0 auto 1rem; }
+  .contact-desc { color: rgba(255,255,255,0.5); max-width: 500px; margin: 0 auto 3rem; line-height: 1.75; }
+  .contact-cards { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .contact-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 1.5rem 2rem;
+    text-align: center; min-width: 180px;
+    transition: border-color 0.2s, background 0.2s;
+    text-decoration: none;
+  }
+  .contact-card:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.06);
+  }
+  .contact-card-icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
+  .contact-card-label { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.12em; font-family: 'DM Mono', monospace; margin-bottom: 0.3rem; }
+  .contact-card-value { font-size: 0.85rem; color: rgba(255,255,255,0.8); word-break: break-all; }
+
+  .open-to-work {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold); padding: 0.7rem 1.5rem; border-radius: 2rem;
+    font-size: 0.85rem; font-weight: 600;
+  }
+  .open-to-work::before { content: '●'; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070F18;
+    text-align: center; padding: 2rem;
+    color: rgba(255,255,255,0.25); font-size: 0.78rem;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 7rem; }
+    .hero-visual { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .projects-grid { grid-template-columns: 1fr; max-width: 500px; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .timeline::before { left: 0; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .timeline-date { text-align: left; padding-left: 1.5rem; }
+    .timeline-dot { left: -7px; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .competency-grid { grid-template-columns: 1fr; }
+    section { padding: 4rem 5%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Annapoorna Mysore Nataraj</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Available for Full-Time Roles · Dallas, TX</div>
+    <h1>
+      IT Business<br/>
+      <em>Analyst</em>
+    </h1>
+    <p class="hero-sub">
+      Bridging business strategy and technology execution through requirements elicitation, stakeholder management, and data-driven insights.
+    </p>
+    <div class="hero-pills">
+      <span class="pill">SQL</span>
+      <span class="pill">Power BI</span>
+      <span class="pill">Agile / Scrum</span>
+      <span class="pill">BRD · FRD</span>
+      <span class="pill">UAT</span>
+      <span class="pill">Stakeholder Mgmt</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Get In Touch</a>
+      <a href="#experience" class="btn btn-outline">View Experience</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="stat-grid">
+        <div class="stat-item">
+          <span class="stat-num">2+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">4+</span>
+          <span class="stat-label">BA Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">40%</span>
+          <span class="stat-label">Query Optimization</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">3.6</span>
+          <span class="stat-label">GPA (M.S.)</span>
+        </div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-location">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Dallas, TX · Open to Relocation
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-label">About Me</div>
+  <div class="about-grid">
+    <div class="about-left">
+      <h2 class="section-title">I turn complex business problems into clear technology solutions</h2>
+      <p class="about-text">I'm an IT Business Analyst with a background in Computer Information Systems and hands-on experience across enterprise application development, data analysis, and process improvement.</p>
+      <p class="about-text">My career has been defined by one core ability: sitting in a room with frustrated stakeholders, complex requirements, and unclear processes — and bringing order, clarity, and a path forward.</p>
+      <div class="about-highlight">"The best BA isn't the one who knows the most technology — it's the one who asks the right questions."</div>
+      <p class="about-text">At Harman Technologies, I worked across the full requirements lifecycle — BRDs, FRDs, UAT, dashboards. At Colorado State University, I applied the same toolkit to research operations. Now I'm bringing both together to drive meaningful outcomes at a technology company in Dallas.</p>
+    </div>
+    <div class="about-right">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:1.2rem;font-weight:700;">Core Competencies</h3>
+      <div class="competency-grid">
+        <div class="competency-item">
+          <div class="comp-icon">📋</div>
+          <div class="comp-title">Requirements Elicitation</div>
+          <div class="comp-desc">BRDs, FRDs, User Stories, acceptance criteria</div>
+        </div>
+        <div class="competency-item">
+          <div class="comp-icon">🤝</div>
+          <div class="comp-title">Stakeholder Management</div>
+          <div class="comp-desc">Cross-functional alignment and expectation management</div>
+        </div>
+        <div class="competency-item">
+          <div class="comp-icon">🔍</div>
+          <div class="comp-title">Gap & Impact Analysis</div>
+          <div class="comp-desc">AS-IS / TO-BE mapping and process optimization</div>
+        </div>
+        <div class="competency-item">
+          <div class="comp-icon">✅</div>
+          <div class="comp-title">UAT Coordination</div>
+          <div class="comp-desc">Test planning, execution, and defect tracking</div>
+        </div>
+        <div class="competency-item">
+          <div class="comp-icon">📊</div>
+          <div class="comp-title">Data Reporting</div>
+          <div class="comp-desc">SQL, Power BI, Tableau dashboards</div>
+        </div>
+        <div class="competency-item">
+          <div class="comp-icon">⚡</div>
+          <div class="comp-title">Agile Delivery</div>
+          <div class="comp-desc">Sprint planning, backlog grooming, retrospectives</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="section-label">Technical Toolkit</div>
+  <h2 class="section-title">Skills & Technologies</h2>
+  <p class="section-desc">A well-rounded toolkit built across enterprise systems, data analysis, and project delivery.</p>
+  <div class="skills-grid">
+    <div class="skill-category">
+      <div class="skill-cat-title">Data & Query</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">R</span>
+        <span class="skill-tag">Excel</span>
+        <span class="skill-tag">Power Query</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">BI & Visualization</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Pivot Tables</span>
+        <span class="skill-tag">KPI Dashboards</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">BA & Documentation</div>
+      <div class="skill-tags">
+        <span class="skill-tag">BRD</span>
+        <span class="skill-tag">FRD</span>
+        <span class="skill-tag">SRS</span>
+        <span class="skill-tag">User Stories</span>
+        <span class="skill-tag">Use Cases</span>
+        <span class="skill-tag">Gap Analysis</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">Project Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">Confluence</span>
+        <span class="skill-tag">SharePoint</span>
+        <span class="skill-tag">MS Teams</span>
+        <span class="skill-tag">Lucidchart</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">Methodology</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Agile</span>
+        <span class="skill-tag">Scrum</span>
+        <span class="skill-tag">Waterfall</span>
+        <span class="skill-tag">SAFe</span>
+        <span class="skill-tag">SDLC</span>
+        <span class="skill-tag">UAT</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <div class="skill-cat-title">Analysis</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Impact Analysis</span>
+        <span class="skill-tag">Root Cause</span>
+        <span class="skill-tag">SWOT</span>
+        <span class="skill-tag">Process Mapping</span>
+        <span class="skill-tag">Change Mgmt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="section-label">Work History</div>
+  <h2 class="section-title">Professional Experience</h2>
+  <p class="section-desc">From enterprise applications to academic operations — consistent delivery across every environment.</p>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <div class="timeline-year">2024 – 2025</div>
+        <div class="timeline-period">Aug 2024 –<br/>Dec 2025</div>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="exp-header">
+          <div class="exp-title">Graduate Technical Assistant</div>
+          <span class="exp-badge">Data & Process Ops</span>
+        </div>
+        <div class="exp-company">Colorado State University</div>
+        <div class="exp-location">📍 Fort Collins, CO</div>
+        <ul class="exp-bullets">
+          <li>Elicited and documented functional requirements from faculty and research leads — producing process flow diagrams and SOPs adopted across 3 research teams</li>
+          <li>Performed gap analysis and impact analysis on academic datasets using SQL and R, identifying inefficiencies and recommending process improvements</li>
+          <li>Developed training materials and user guides that reduced repeat support requests by 30% and improved onboarding efficiency</li>
+          <li>Fulfilled ad-hoc data reporting requests maintaining 100% accuracy and confidentiality</li>
+        </ul>
+        <div class="exp-achievements">
+          <span class="exp-achievement">🔻 ~25% reduction in manual workflow steps</span>
+          <span class="exp-achievement">📄 SOPs adopted by 3 research teams</span>
+          <span class="exp-achievement">⏱️ 30% faster onboarding</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <div class="timeline-year">2023 – 2024</div>
+        <div class="timeline-period">Apr 2023 –<br/>Jul 2024</div>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="exp-header">
+          <div class="exp-title">Career Break – Professional Development</div>
+          <span class="exp-badge">Self-Directed</span>
+        </div>
+        <div class="exp-company">Upskilling & Certification</div>
+        <div class="exp-location">📍 Deliberate investment in BA skill set</div>
+        <ul class="exp-bullets">
+          <li>Completed certifications in Business Intelligence, Power BI, Data Analytics, and Jira</li>
+          <li>Built hands-on BA deliverables: BRDs, process diagrams, Power BI dashboards, and Jira-managed mock projects</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <div class="timeline-year">2022 – 2023</div>
+        <div class="timeline-period">Mar 2022 –<br/>Mar 2023</div>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="exp-header">
+          <div class="exp-title">Associate Business Analyst</div>
+          <span class="exp-badge">Enterprise Applications</span>
+        </div>
+        <div class="exp-company">Harman Technologies (Samsung subsidiary)</div>
+        <div class="exp-location">📍 Bengaluru, India</div>
+        <ul class="exp-bullets">
+          <li>Authored BRDs, FRDs, and Agile User Stories by partnering with business stakeholders and product owners across enterprise application enhancements</li>
+          <li>Optimized SQL queries and database schemas — achieving a 40% reduction in query execution time for customer-facing platforms</li>
+          <li>Coordinated end-to-end UAT across 3 consecutive releases — zero critical defects at go-live</li>
+          <li>Built Power BI and Tableau dashboards reducing manual reporting effort by 15+ hours per month</li>
+          <li>Collaborated in Agile sprint ceremonies: planning, backlog grooming, standups, retrospectives</li>
+        </ul>
+        <div class="exp-achievements">
+          <span class="exp-achievement">⚡ 40% SQL performance improvement</span>
+          <span class="exp-achievement">✅ 0 critical defects across 3 releases</span>
+          <span class="exp-achievement">⏱️ 15+ hrs/month saved via dashboards</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <div class="timeline-year">2021 – 2022</div>
+        <div class="timeline-period">Sep 2021 –<br/>Jan 2022</div>
+      </div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="exp-header">
+          <div class="exp-title">Business & Product Analyst Intern</div>
+          <span class="exp-badge">Ed-Tech Startup</span>
+        </div>
+        <div class="exp-company">CoachEd</div>
+        <div class="exp-location">📍 Mysuru, India</div>
+        <ul class="exp-bullets">
+          <li>Gathered and documented feature requirements with product managers — aligning development team on acceptance criteria and reducing rework cycles</li>
+          <li>Participated in full Agile sprint lifecycle and contributed to platform improvements that increased user engagement by 20%</li>
+        </ul>
+        <div class="exp-achievements">
+          <span class="exp-achievement">📈 20% user engagement improvement</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="section-label">Portfolio Work</div>
+  <h2 class="section-title">BA Project Case Studies</h2>
+  <p class="section-desc">End-to-end business analysis simulations covering the most in-demand project types in today's market.</p>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🔄</div>
+        <div class="project-type">CRM Implementation</div>
+        <div class="project-title">Salesforce Migration BA Case Study</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Full BA engagement simulating a Salesforce CRM migration for a mid-size company — from multi-stakeholder discovery through to UAT sign-off planning.</p>
+        <div class="project-deliverables">
+          <div class="deliverable">Full BRD & FRD with functional and non-functional requirements</div>
+          <div class="deliverable">AS-IS / TO-BE swimlane diagrams — 7 process gaps identified</div>
+          <div class="deliverable">20+ User Stories with acceptance criteria across 4 Jira sprints</div>
+          <div class="deliverable">UAT traceability matrix — 100% requirement coverage</div>
+        </div>
+      </div>
+      <div class="project-tools">
+        <span class="tool-tag">Jira</span>
+        <span class="tool-tag">Lucidchart</span>
+        <span class="tool-tag">SQL</span>
+        <span class="tool-tag">Confluence</span>
+        <span class="tool-tag">BRD / FRD</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">🤖</div>
+        <div class="project-type">AI Tool Evaluation</div>
+        <div class="project-title">AI Customer Support Automation — Requirements & Impact</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Business case and requirements analysis for implementing an AI chatbot handling 10,000+ monthly support tickets — including change impact and ROI baseline.</p>
+        <div class="project-deliverables">
+          <div class="deliverable">Functional & non-functional requirements for AI integration</div>
+          <div class="deliverable">Stakeholder impact analysis and change readiness assessment</div>
+          <div class="deliverable">Power BI KPI baseline dashboard for ROI measurement</div>
+          <div class="deliverable">Phased rollout communication plan</div>
+        </div>
+      </div>
+      <div class="project-tools">
+        <span class="tool-tag">Power BI</span>
+        <span class="tool-tag">Confluence</span>
+        <span class="tool-tag">Lucidchart</span>
+        <span class="tool-tag">Excel</span>
+        <span class="tool-tag">Change Mgmt</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">☁️</div>
+        <div class="project-type">ERP Migration</div>
+        <div class="project-title">Cloud ERP Readiness — Gap Analysis (SAP S/4HANA)</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">End-to-end migration readiness assessment for a manufacturing company moving to SAP S/4HANA — translating complex technical risks into business-ready recommendations.</p>
+        <div class="project-deliverables">
+          <div class="deliverable">Gap Analysis report — 10 gaps prioritized by business impact</div>
+          <div class="deliverable">Data migration specifications and field mapping documentation</div>
+          <div class="deliverable">Executive summary and phased implementation roadmap</div>
+          <div class="deliverable">Change Impact Assessment for affected stakeholder groups</div>
+        </div>
+      </div>
+      <div class="project-tools">
+        <span class="tool-tag">Excel</span>
+        <span class="tool-tag">Lucidchart</span>
+        <span class="tool-tag">SQL</span>
+        <span class="tool-tag">Gap Analysis</span>
+        <span class="tool-tag">SAP S/4HANA</span>
+      </div>
+    </div>
+
+     <div class="project-card">
+      <div class="project-header">
+        <div class="project-icon">☁️</div>
+        <div class="project-type">AIML</div>
+        <div class="project-title">Ethereum Price Prediction</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">End-to-end migration readiness assessment for a manufacturing company moving to SAP S/4HANA — translating complex technical risks into business-ready recommendations.</p>
+        <div class="project-deliverables">
+          <div class="deliverable">Built a machine learning model in Python to predict Ethereum prices using historical cryptocurrency data</div>
+          <div class="deliverable">Performed data preprocessing and exploratory analysis to identify key market trends and patterns</div>
+          <div class="deliverable">Implemented Linear Regression and time-series techniques to forecast price movements</div>
+          <div class="deliverable">Evaluated model performance and generated insights into cryptocurrency market behavior for improved prediction accuracy</div>
+        </div>
+      </div>
+      <div class="project-tools">
+        <span class="tool-tag">Python</span>
+        <span class="tool-tag">Pandas</span>
+        <span class="tool-tag">NumPy</span>
+        <span class="tool-tag">Matplotlib</span>
+        <span class="tool-tag">Time-Series Analysis</span>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- EDUCATION & CERTS -->
+<section class="edu" id="education">
+  <div class="section-label">Academic Background</div>
+  <h2 class="section-title">Education & Certifications</h2>
+  <p class="section-desc">A strong academic foundation in technology and information systems, backed by practical certifications.</p>
+
+  <div class="edu-grid">
+    <div>
+      <div class="edu-card">
+        <div class="edu-degree">Master of Science — Computer Information Systems</div>
+        <div class="edu-school">Colorado State University</div>
+        <div class="edu-meta">Fort Collins, CO  ·  2024 – 2025</div>
+        <div class="edu-gpa">⭐ GPA: 3.6 / 4.0</div>
+        <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.8rem;line-height:1.6;">Business Intelligence · Data Analytics · Systems Analysis & Design · Database Management · Project Management</p>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Bachelor of Engineering — Computer Science</div>
+        <div class="edu-school">Visveswaraya Technological University</div>
+        <div class="edu-meta">India  ·  2019 – 2022</div>
+        <div class="edu-gpa">⭐ GPA: 3.6 / 4.0</div>
+      </div>
+    </div>
+
+    <div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:1.2rem;font-weight:700;">Certifications</h3>
+      <div class="cert-list">
+        <div class="cert-item">
+          <div class="cert-icon">🎓</div>
+          <div>
+            <div class="cert-name">Graduate Certificate in Business Intelligence</div>
+            <div class="cert-issuer">Colorado State University</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">📊</div>
+          <div>
+            <div class="cert-name">Data Visualization with Power BI</div>
+            <div class="cert-issuer">LinkedIn Learning</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">📈</div>
+          <div>
+            <div class="cert-name">Learning Data Analytics</div>
+            <div class="cert-issuer">LinkedIn Learning</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">⚡</div>
+          <div>
+            <div class="cert-name">Learning Jira</div>
+            <div class="cert-issuer">LinkedIn Learning</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">☕</div>
+          <div>
+            <div class="cert-name">Oracle Java Foundations</div>
+            <div class="cert-issuer">Oracle</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Let's Work Together</h2>
+  <p class="contact-desc">I'm actively looking for full-time IT Business Analyst opportunities in Dallas, TX. Open to relocation and remote roles.</p>
+
+  <div class="contact-cards">
+    <a href="mailto:amynataraj@gmail.com" class="contact-card">
+      <div class="contact-card-icon">✉️</div>
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-value">amynataraj@gmail.com</div>
+    </a>
+    <a href="tel:+19703916324" class="contact-card">
+      <div class="contact-card-icon">📱</div>
+      <div class="contact-card-label">Phone</div>
+      <div class="contact-card-value">+1 (970) 391-6324</div>
+    </a>
+    <a href="https://linkedin.com/in/annapoorna81" target="_blank" class="contact-card">
+      <div class="contact-card-icon">💼</div>
+      <div class="contact-card-label">LinkedIn</div>
+      <div class="contact-card-value">linkedin.com/in/annapoorna81</div>
+    </a>
+    <div class="contact-card">
+      <div class="contact-card-icon">📍</div>
+      <div class="contact-card-label">Location</div>
+      <div class="contact-card-value">Dallas, TX · Open to Relocation</div>
+    </div>
+  </div>
+
+  <div class="open-to-work">Open to Work — Actively Seeking IT BA Roles</div>
+</section>
+
+<footer>
+  <p>© 2026 Annapoorna Mysore Nataraj · IT Business Analyst · Dallas, TX</p>
+</footer>
+
+<script>
+  // Scroll animation for timeline items
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
